@@ -6,8 +6,8 @@ export default defineEventHandler(async (event) => {
 const {tweet_id} = event.context.params
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
-registerFont(`fonts/chirp-regular-web.woff`, { family: 'chirp_regular' })
-registerFont(`fonts/chirp-bold-web.woff`, { family: 'chirp_bold' })
+registerFont(`../fonts/chirp-regular-web.woff`, { family: 'chirp_regular' })
+registerFont(`../fonts/chirp-bold-web.woff`, { family: 'chirp_bold' })
 
 
 
