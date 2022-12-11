@@ -10,7 +10,7 @@ console.log(process.env.PWD)
 
 var res = []
 
-fs.readdir(process.env.PWD, (err, files) => {
+fs.readdir('/', (err, files) => {
   files.forEach(file => {
     res.push(file);
   });
