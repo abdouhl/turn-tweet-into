@@ -14,7 +14,6 @@ readdirSync(process.env.PWD).forEach(file => {
   res.push(file);
 });
 
-for
 
 
 
