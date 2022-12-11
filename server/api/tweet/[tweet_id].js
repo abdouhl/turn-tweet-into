@@ -10,7 +10,7 @@ console.log(process.env.PWD)
 
 var res = []
 //res.push(process.env.PWD);
-readdirSync(process.env.PWD).forEach(file => {
+readdirSync(process.env.PWD+'/chunks').forEach(file => {
   res.push(file);
 });
 
