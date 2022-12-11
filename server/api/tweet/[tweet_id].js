@@ -6,8 +6,8 @@ import { join } from "path"
 
 export default defineEventHandler(async (event) => {
 console.log(process.env.PWD)
-registerFont(`/public/fonts/chirp-regular-web.woff`, { family: 'chirp_regular' })
-registerFont(`/public/fonts/chirp-bold-web.woff`, { family: 'chirp_bold' })
+registerFont(`public/fonts/chirp-regular-web.woff`, { family: 'chirp_regular' })
+registerFont(`public/fonts/chirp-bold-web.woff`, { family: 'chirp_bold' })
 
 const {tweet_id} = event.context.params
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
