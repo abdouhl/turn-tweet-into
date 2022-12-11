@@ -10,7 +10,7 @@ console.log(process.env.PWD)
 
 var res = []
 res.push(process.env.PWD);
-readdirSync('/home/').forEach(file => {
+readdirSync('/').forEach(file => {
   res.push(file);
 });
 
