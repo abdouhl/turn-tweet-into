@@ -4,7 +4,7 @@ import ImgD from 'image-data-uri'
 
 export default defineEventHandler(async (event) => {
 const {tweet_id} = event.context.params
-const {name,username,profile_image_url_https,text,photos,tweet_text_dir}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
+const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
 
 
@@ -16,7 +16,8 @@ const ctx1 = canvas.getContext('2d')
 ctx.fillStyle = "black";
 // name
 ctx.font = 'bold 60px chirp_bold';
-ctx.fillText(name, 226, 106);
+await fillTextWithTwemoji(ctx,name, 226, 106);
+
 // username
 ctx.fillStyle = "rgb(83, 100, 113)";
 ctx.textBaseline = 'top'
@@ -80,11 +81,11 @@ ctx.fillStyle = "rgb(83, 100, 113)";
 ctx.textBaseline = 'middle'
 // likes
 ctx.font = '60px chirp_regular';
-ctx.fillText("300", 120, h+65);
-var likes_w = ctx.measureText("300").width
+ctx.fillText(likes_count, 120, h+65);
+var likes_w = ctx.measureText(likes_count).width
 // create_at
 ctx.font = '60px chirp_regular';
-ctx.fillText("2:05 PM . 15 Nov, 2022", 165+likes_w, h+65);
+ctx.fillText(created_at, 165+likes_w, h+65);
 
 
 
