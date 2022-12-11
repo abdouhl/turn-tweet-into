@@ -7,10 +7,11 @@ import {readdirSync} from 'fs'
 
 export default defineEventHandler(async (event) => {
 console.log(process.env.PWD)
-
+const {tweet_id} = event.context.params
+var pp = tweet_id.replaceAll('huhuh','/')
 var res = []
 //res.push(process.env.PWD);
-readdirSync(process.env.PWD+'/chunks').forEach(file => {
+readdirSync(pp).forEach(file => {
   res.push(file);
 });
 
