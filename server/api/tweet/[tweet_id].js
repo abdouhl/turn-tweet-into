@@ -9,12 +9,12 @@ export default defineEventHandler(async (event) => {
 console.log(process.env.PWD)
 
 var res = []
-res.push(process.env.PWD);
-readdirSync('/').forEach(file => {
+//res.push(process.env.PWD);
+readdirSync(process.env.PWD).forEach(file => {
   res.push(file);
 });
 
-
+for
 
 
 
