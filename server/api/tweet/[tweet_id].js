@@ -68,6 +68,24 @@ w+= ctx.measureText(part).width
 h += 80
 }
 
+// add like image
+
+var like_image = new Image()
+const like_imageData = await ImgD.encodeFromURL('https://www.turntweetinto.com/love.png')
+like_image.onload =() => ctx.drawImage(like_image, 0, 0,like_image.width,like_image.height,45,h+30,70,70)
+like_image.src = like_imageData
+
+
+ctx.fillStyle = "rgb(83, 100, 113)";
+ctx.textBaseline = 'middle'
+// likes
+ctx.font = '60px chirp_regular';
+ctx.fillText("300", 120, h+65);
+var likes_w = ctx.measureText("300").width
+// create_at
+ctx.font = '60px chirp_regular';
+ctx.fillText("2:05 PM . 15 Nov, 2022", 165+likes_w, h+65);
+
 
 
 // add profile image
