@@ -4,7 +4,7 @@ import ImgD from 'image-data-uri'
 
 export default defineEventHandler(async (event) => {
 const {tweet_id} = event.context.params
-const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
+const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
 
 
