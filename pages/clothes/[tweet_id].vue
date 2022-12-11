@@ -1,10 +1,19 @@
 <script setup>
-import { ref, computed,watch,reactive } from 'vue'
+
 
 
 
 const {tweet_id} = useRoute().params
 
+useHead({
+  title: 'Turn Tweet Into',
+  meta: [
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Turn Tweet Into' },
+    { name: 'twitter:description', content: 'Turn Tweet Into '+tweet_id },
+    { name: 'twitter:image', content: 'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1024&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/tweet/'+tweet_id },
+  ]
+})
 
 const colorActiveBtnClasses = reactive(["color-choose","w-12","h-12","rounded-md","ring-offset-stone-200","ring-offset-4","ring-2"])
 const colorDESActiveBtnClasses = reactive(["color-choose","cursor-pointer","w-12","h-12","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-4","hover:ring-2","hover:ring-white"])
