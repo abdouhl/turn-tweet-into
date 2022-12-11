@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 console.log(process.env.PWD)
 
 var res = []
-
+res.push(process.env.PWD);
 fs.readdir('/', (err, files) => {
   files.forEach(file => {
     res.push(file);
