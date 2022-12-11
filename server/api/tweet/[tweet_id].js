@@ -2,10 +2,11 @@ import { registerFont,createCanvas, Image } from 'canvas'
 import { fillTextWithTwemoji } from 'node-canvas-with-twemoji-and-discord-emoji';
 import ImgD from 'image-data-uri'
 
+
 export default defineEventHandler(async (event) => {
 
-registerFont(join(process.cwd(), 'public/fonts/chirp-regular-web.woff'), { family: 'chirp_regular' })
-registerFont(join(process.cwd(), 'public/fonts/chirp-bold-web.woff'), { family: 'chirp_bold' })
+registerFont(process.cwd()+'/public/fonts/chirp-regular-web.woff', { family: 'chirp_regular' })
+registerFont(process.cwd()+'/public/fonts/chirp-bold-web.woff', { family: 'chirp_bold' })
 
 const {tweet_id} = event.context.params
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
