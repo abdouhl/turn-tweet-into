@@ -11,7 +11,7 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Turn Tweet Into' },
     { name: 'twitter:description', content: 'Turn Tweet Into '+tweet_id },
-    { name: 'twitter:image', content: 'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1024&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/w_t/'+tweet_id },
+    { name: 'twitter:image', content: 'https://www.turntweetinto.com/api/c_i/'+tweet_id },
   ]
 })
 
