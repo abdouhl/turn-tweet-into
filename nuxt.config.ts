@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// yarn build  .nuxt/dist yarn install
 if (
   process.env.LD_LIBRARY_PATH == null ||
   !process.env.LD_LIBRARY_PATH.includes(
@@ -17,7 +18,7 @@ export default defineNuxtConfig({
   css: [
     '@/assets/css/main.css',
   ],
-  nitro: {
+/*  nitro: {
     preset: "vercel",
-  },
+  },*/
 })
