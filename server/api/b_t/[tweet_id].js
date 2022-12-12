@@ -15,13 +15,13 @@ const canvas = createCanvas(1800, 2100)
 const ctx = canvas.getContext('2d')
 const ctx1 = canvas.getContext('2d')
 
-ctx.fillStyle = "white";
+ctx.fillStyle = "rgb(231, 233, 234)";
 // name
 ctx.font = 'bold 60px chirp_bold';
 await fillTextWithTwemoji(ctx,name, 226, 106);
 
 // username
-ctx.fillStyle = "rgb(83, 100, 113)";
+ctx.fillStyle = "rgb(113, 118, 123)";
 ctx.textBaseline = 'top'
 ctx.font = '45px chirp_regular';
 ctx.fillText('@'+username, 226, 116);
@@ -50,7 +50,7 @@ for(var part of line){
 part = part.replaceAll('&amp;','&').replaceAll('  ',' ')
 if(part[0] === '@' || part[0] === '#'){
 
-ctx.fillStyle = "rgb(29, 155, 240)";
+ctx.fillStyle = "rgb(113, 118, 123)";
 ctx.textBaseline = 'top'
 ctx.font = '68px chirp_regular';
 //ctx.fillText(part, w, h);
@@ -59,7 +59,7 @@ await fillTextWithTwemoji(ctx,part, w, h);
 
 }else{
 
-ctx.fillStyle = "white";
+ctx.fillStyle = "rgb(231, 233, 234)";
 ctx.textBaseline = 'top'
 ctx.font = '68px chirp_regular';
 //ctx.fillText(part, w, h);
@@ -79,7 +79,7 @@ like_image.onload =() => ctx.drawImage(like_image, 0, 0,like_image.width,like_im
 like_image.src = like_imageData
 
 
-ctx.fillStyle = "rgb(83, 100, 113)";
+ctx.fillStyle = "rgb(113, 118, 123)";
 ctx.textBaseline = 'middle'
 // likes
 ctx.font = '60px chirp_regular';

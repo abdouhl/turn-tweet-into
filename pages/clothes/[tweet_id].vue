@@ -11,7 +11,7 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Turn Tweet Into' },
     { name: 'twitter:description', content: 'Turn Tweet Into '+tweet_id },
-    { name: 'twitter:image', content: 'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1024&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/tweet/'+tweet_id },
+    { name: 'twitter:image', content: 'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1024&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/w_t/'+tweet_id },
   ]
 })
 
@@ -41,7 +41,7 @@ function changeUrl(event) {
     image.type = event.target.getAttribute('data-type')
     image.w_url = event.target.getAttribute('data-url-white')
     image.b_url = event.target.getAttribute('data-url-black')
-    console.log(image.color)
+
   }
 }
 /*function changeTweet(event) {
@@ -78,14 +78,14 @@ function changeColor(event) {
 //event.target.getAttribute('data-url-'+image.color)
 const image_url = computed(() => {
     if(image.color=='white'){
-    return image.w_url + 'https://www.turntweetinto.com/api/tweet/'+tweet_id
+    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id
     }else if(image.color=='black'){
-    return image.b_url + 'https://www.turntweetinto.com/api/tweet/'+tweet_id
+    return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id
     }
 })
 
 next_tweet = computed(() => {
-    console.log(tweet_url.url)
+
     if(!tweet_url.url ||tweet_url.url == ("https://twitter.com/_/status/"+tweet_id) || tweet_url.url == ""){
     return null
     }else{
