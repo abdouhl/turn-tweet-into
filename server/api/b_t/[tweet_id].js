@@ -71,6 +71,34 @@ w+= ctx.measureText(part).width
 h += 80
 }
 
+
+//add photos
+var perfect_h = 1800-h;
+
+
+if (photos.length >= 1){
+ctx.save();  
+ctx.beginPath();
+var photo1_image = new Image()
+var photo1_imageData = await ImgD.encodeFromURL(photos[0])
+var hhh = 0;
+var www = 0;
+photo1_image.onload =() => {
+www = 1734
+hhh = (photo1_image.height/photo1_image.width*www).toFixed()
+if (hhh > perfect_h){
+hhh = perfect_h
+www = (photo1_image.width/photo1_image.height*hhh).toFixed()
+}
+ctx.roundRect(900-(www/2).toFixed(),h+30,www,hhh, [40]);
+ctx.clip();
+ctx.drawImage(photo1_image, 0, 0,photo1_image.width,photo1_image.height,900-(www/2).toFixed(),h+30,www,hhh)
+}
+photo1_image.src = photo1_imageData
+h += 50+ hhh
+ctx.restore()
+}
+
 // add like image
 
 var like_image = new Image()
