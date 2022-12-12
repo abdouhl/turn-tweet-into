@@ -21,5 +21,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel",
     serveStatic:true,
+    serverAssets: [{
+    baseName: 'public',
+    dir: './server/public'
+  }]
   },
 })
