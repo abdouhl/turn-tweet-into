@@ -39,6 +39,8 @@ const image = reactive({
 })
 const tweet_url =  reactive({url:'https://twitter.com/_/status/'+tweet_id})
 
+const cond  = reactive({show_media:'true'})
+
 var next_tweet =null
 onMounted(() => {
 
@@ -87,17 +89,17 @@ function changeColor(event) {
 //event.target.getAttribute('data-url-'+image.color)
 const image_url = computed(() => {
     if(image.color=='white'){
-    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id
+    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'?media='+cond.show_media
     }else if(image.color=='black'){
-    return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id
+    return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'?media='+cond.show_media
     }
 })
 
 const png_url = computed(() => {
     if(image.color=='white'){
-    return 'https://www.turntweetinto.com/api/w_t/'+tweet_id
+    return 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'?media='+cond.show_media
     }else if(image.color=='black'){
-    return 'https://www.turntweetinto.com/api/b_t/'+tweet_id
+    return 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'?media='+cond.show_media
     }
 })
 
@@ -145,10 +147,18 @@ watch(tweet_url, (new_tweet_url) => {
       
       <div >
           <h3 class="text-xl my-4">Color:</h3>
-          <div class="flex flex-row gap-4">
+          <div class="flex flex-row gap-4 mb-4">
               <div @click="changeColor" data-color="white" :class="[image.color == 'white' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-white']"></div>
               <div @click="changeColor" data-color="black" :class="[image.color == 'black' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-black']"></div>
           </div>
+          <div class="flex items-center">
+						<label for="toggle" class="text-xl  pr-8">Show Media:</label>
+						<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+								<input type="checkbox" v-model="cond.show_media" true-value="true" false-value="false" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+								<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+						</div>
+						</div>
+
       </div> 
       <a class="self-stretch mx-2  p-2 border-2 border-black  rounded-lg bg-stone-100 text-gray-500 font-bold w-4/6 mx-auto text-center" :href="links[image.type][image.color]+png_url">Buy IT</a>
     </div>
@@ -156,4 +166,18 @@ watch(tweet_url, (new_tweet_url) => {
     </div>
 </section>
 </template>
+
+<style>
+/* CHECKBOX TOGGLE SWITCH */
+/* @apply rules for documentation, these do not work as inline style */
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68D391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68D391;
+}
+</style>
 

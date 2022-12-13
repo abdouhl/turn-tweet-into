@@ -6,6 +6,8 @@ import ImgD from 'image-data-uri'
 export default defineEventHandler(async (event) => {
 
 const {tweet_id} = event.context.params
+const query = getQuery(event)
+
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
 
@@ -71,6 +73,9 @@ w+= ctx.measureText(part).width
 h += 80
 }
 
+
+//-----------------------media----------------
+if(query.media != "false"){
 //add photos
 var perfect_h = 1800-h;
 
@@ -159,7 +164,11 @@ photo2_image.src = photo2_imageData
 h += 50+ hhh
 ctx.restore()
 }
+}
+//-----------------------end----------------
 
+//-----------------------info----------------
+if(query.info != "false"){
 // add like image
 
 var like_image = new Image()
@@ -177,8 +186,8 @@ var likes_w = ctx.measureText(likes_count).width
 // create_at
 ctx.font = '60px chirp_regular';
 ctx.fillText(created_at, 165+likes_w, h+65);
-
-
+}
+//-----------------------end----------------
 
 
 // add profile image
