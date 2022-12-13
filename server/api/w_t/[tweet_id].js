@@ -75,7 +75,7 @@ h += 80
 var perfect_h = 1800-h;
 
 
-if (photos.length >= 1){
+if (photos.length == 1){
 ctx.save();  
 ctx.beginPath();
 var photo1_image = new Image()
@@ -94,6 +94,68 @@ ctx.clip();
 ctx.drawImage(photo1_image, 0, 0,photo1_image.width,photo1_image.height,900-(www/2).toFixed(),h+30,www,hhh)
 }
 photo1_image.src = photo1_imageData
+h += 50+ hhh
+ctx.restore()
+}else if (photos.length >= 2){
+
+ctx.save();  
+ctx.beginPath();
+var photo1_image = new Image()
+var photo1_imageData = await ImgD.encodeFromURL(photos[0])
+var photo2_image = new Image()
+var photo2_imageData = await ImgD.encodeFromURL(photos[1])
+var hhh = 960;
+var www = 1710;
+if(perfect_h < 960){
+  hhh = perfect_h
+  www = (1710/960*hhh).toFixed()
+}
+
+ctx.roundRect(900-(www/2).toFixed(),h+30,www,hhh, [40]);
+ctx.clip();
+
+// 860 ---> hhh
+// 
+photo1_image.onload =() => {
+var www1 = 0;
+var hhh1 = 0;
+if((photo1_image.width/photo1_image.height) > ((www/2).toFixed()/hhh)){
+
+www1 = ((www/2).toFixed() * photo1_image.height / hhh).toFixed()
+hhh1 = photo1_image.height
+
+}else if((photo1_image.width/photo1_image.height) < ((www/2).toFixed()/hhh)){
+hhh1 = (hhh * photo1_image.width / (www/2).toFixed()).toFixed()
+www1 = photo1_image.width
+}else if((photo1_image.width/photo1_image.height) == ((www/2).toFixed()/hhh)){
+hhh1 = hhh
+www1 = (www/2).toFixed()
+}
+ctx.drawImage(photo1_image, ((photo1_image.width-www1)/2).toFixed(), ((photo1_image.height-hhh1)/2).toFixed(),www1,hhh1,897-(www/2).toFixed(),h+30,(www/2).toFixed(),hhh)
+}
+
+photo1_image.src = photo1_imageData
+
+photo2_image.onload =() => {
+var www2 = 0;
+var hhh2 = 0;
+if((photo2_image.width/photo2_image.height) > ((www/2).toFixed()/hhh)){
+
+www2 = ((www/2).toFixed() * photo2_image.height / hhh).toFixed()
+hhh2 = photo2_image.height
+
+}else if((photo2_image.width/photo2_image.height) < ((www/2).toFixed()/hhh)){
+hhh2 = (hhh * photo2_image.width / (www/2).toFixed()).toFixed()
+www2 = photo2_image.width
+}else if((photo2_image.width/photo2_image.height) == ((www/2).toFixed()/hhh)){
+hhh2 = hhh
+www2 = (www/2).toFixed()
+}
+ctx.drawImage(photo2_image, ((photo2_image.width-www2)/2).toFixed(), ((photo2_image.height-hhh2)/2).toFixed(),www2,hhh2,903,h+30,(www/2).toFixed(),hhh)
+}
+photo2_image.src = photo2_imageData
+
+
 h += 50+ hhh
 ctx.restore()
 }
