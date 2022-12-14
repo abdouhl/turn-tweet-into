@@ -5,8 +5,17 @@ import ImgD from 'image-data-uri'
 
 export default defineEventHandler(async (event) => {
 
-const {tweet_id} = event.context.params
-const query = getQuery(event)
+var {tweet_id} = event.context.params
+var ll = tweet_id.split('-')
+var tweet_id = ll[0]
+var show_media = "true"
+var show_info = "true"
+if(ll.length == 2){
+show_media = ll[1]
+}else if(ll.length >= 3){
+show_media = ll[1]
+show_info = ll[2]
+}
 
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
@@ -75,7 +84,7 @@ h += 80
 
 
 //-----------------------media----------------
-if(query.media != "false"){
+if(show_media != "false"){
 //add photos
 var perfect_h = 1800-h;
 
@@ -168,7 +177,7 @@ ctx.restore()
 //-----------------------end----------------
 
 //-----------------------info----------------
-if(query.info != "false"){
+if(show_info != "false"){
 // add like image
 
 var like_image = new Image()

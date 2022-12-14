@@ -89,17 +89,17 @@ function changeColor(event) {
 //event.target.getAttribute('data-url-'+image.color)
 const image_url = computed(() => {
     if(image.color=='white'){
-    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'?media='+cond.show_media
+    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'-'+cond.show_media
     }else if(image.color=='black'){
-    return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'?media='+cond.show_media
+    return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'-'+cond.show_media
     }
 })
 
 const png_url = computed(() => {
     if(image.color=='white'){
-    return 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'?media='+cond.show_media
+    return 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'-'+cond.show_media
     }else if(image.color=='black'){
-    return 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'?media='+cond.show_media
+    return 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'-'+cond.show_media
     }
 })
 
