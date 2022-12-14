@@ -12,11 +12,17 @@ useHead({
     { name: 'twitter:title', content: 'Turn Tweet Into' },
     { name: 'twitter:description', content: 'Turn Tweet Into '+tweet_id },
     { name: 'twitter:image', content: 'https://www.turntweetinto.com/api/c_i/'+tweet_id },
+  ],
+  link: [
+    {rel: 'preconnect', type: 'text/css', href: 'https://fonts.googleapis.com'},
+    {rel: 'preconnect', crossorigin: true, href: 'https://fonts.gstatic.com'},
+    {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lobster&display=swap'},
   ]
 })
 
-const colorActiveBtnClasses = reactive(["color-choose","w-12","h-12","rounded-md","ring-offset-stone-200","ring-offset-4","ring-2"])
-const colorDESActiveBtnClasses = reactive(["color-choose","cursor-pointer","w-12","h-12","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-4","hover:ring-2","hover:ring-white"])
+
+const colorActiveBtnClasses = reactive(["color-choose","w-8","h-8","md:w-12","md:h-12","rounded-md","ring-offset-stone-200","ring-offset-4","ring-2"])
+const colorDESActiveBtnClasses = reactive(["color-choose","cursor-pointer","w-8","h-8","md:w-12","md:h-12","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-4","hover:ring-2","hover:ring-white"])
 
 
 const typeActiveBtnClasses = reactive(["text-xs","md:text-xl","type-choose","border","md:border-2","border-black","rounded-md","rounded-md","ring-offset-stone-200","ring-offset-2","md:ring-offset-4","ring-2","p-1","md:p-2"])
@@ -124,11 +130,13 @@ watch(tweet_url, (new_tweet_url) => {
 <template>
 
 <section style="background-color: #E6E2D9;" class="w-screen  pb-4 md:pb-0 md:h-screen " >
-<div class="flex flex-row justify-items-center justify-center px-1 md:px-8 py-2 md:py-4" >
-  <input class="w-full md:w-6/12 lg:w-5/12 placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-4 border md:border-2 border-black  rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
+<div class="flex md:flex-row flex-col w-full px-1 md:px-8 md:items-center">
+<h1 ><NuxtLink style="font-family: 'Lobster', cursive;" class="align-middle h-fit text-center md:text-start text-3xl my-2 font-bold hover:text-blue-500" to="/">Turn Tweet Into</NuxtLink></h1>
+<div class="grow flex flex-row justify-items-center justify-center py-2 md:py-4" >
+  <input class="w-full md:w-6/12 lg:w-5/12 placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-2 border md:border-2 border-black  rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
   <NuxtLink class="self-stretch mx-1 md:mx-2  p-2 border md:border-2  border-black  rounded-lg bg-stone-100 text-gray-500 text-xs md:text-xl font-bold" :to="next_tweet">Submit</NuxtLink>
 </div>
-
+</div>
 <div class="px-2 md:px-8 py-2 md:py-4 h-fit md:h-1/6">
       <div class="flex flex-row gap-2 md:gap-4">
           <div  @click.self="changeUrl" data-url-black="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=" data-url-white="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="t_shirt" :class="image.type == 't_shirt' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
@@ -166,7 +174,7 @@ watch(tweet_url, (new_tweet_url) => {
 						</div>
 					</div>
       </div> 
-      <a class="self-stretch my-2  p-1 md:p-2 border md:border-2 border-black  rounded-lg bg-stone-100 text-gray-500 font-bold w-4/6 mx-auto text-center" :href="links[image.type][image.color]+png_url">Buy IT</a>
+      <a class="self-stretch my-2  p-1 md:p-2 border md:border-2 border-black text-s md:text-xl rounded-lg bg-stone-100 text-gray-500 font-bold w-4/6 mx-auto text-center" :href="links[image.type][image.color]+png_url">Buy IT</a>
     </div>
         
     </div>
@@ -174,16 +182,23 @@ watch(tweet_url, (new_tweet_url) => {
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+background-color: #E6E2D9;
+}
 /* CHECKBOX TOGGLE SWITCH */
 /* @apply rules for documentation, these do not work as inline style */
 .toggle-checkbox:checked {
   @apply: right-0 border-green-400;
   right: 0;
-  border-color: rgb(59 130 246 / 1);
+  border-color: rgb(59 130 246 / 0.5);
+  
 }
 .toggle-checkbox:checked + .toggle-label {
   @apply: bg-green-400;
-  background-color: rgb(59 130 246 / 1);
+  background-color: rgb(59 130 246 / 0.5);
+  border-radius:5rem 2rem 2rem 5rem;
 }
 </style>
 
