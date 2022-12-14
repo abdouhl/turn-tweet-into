@@ -85,8 +85,8 @@ h += 80
 
 //-----------------------media----------------
 if(show_media != "false"){
-//add photos 564 317
-var perfect_h = 1900-h;
+//add photos
+var perfect_h = 1800-h;
 
 
 if (photos.length == 1){
@@ -110,8 +110,7 @@ ctx.drawImage(photo1_image, 0, 0,photo1_image.width,photo1_image.height,900-(www
 photo1_image.src = photo1_imageData
 h += 50+ hhh
 ctx.restore()
-
-}else if (photos.length >= 2){
+}else if (photos.length == 2){
 
 ctx.save();  
 ctx.beginPath();
@@ -173,7 +172,193 @@ photo2_image.src = photo2_imageData
 
 h += 50+ hhh
 ctx.restore()
+}else if (photos.length == 3){
+
+ctx.save();  
+ctx.beginPath();
+var photo1_image = new Image()
+var photo1_imageData = await ImgD.encodeFromURL(photos[0])
+var photo2_image = new Image()
+var photo2_imageData = await ImgD.encodeFromURL(photos[1])
+var photo3_image = new Image()
+var photo3_imageData = await ImgD.encodeFromURL(photos[2])
+var hhh = 960;
+var www = 1710;
+if(perfect_h < 960){
+  hhh = perfect_h
+  www = (1710/960*hhh).toFixed()
 }
+
+ctx.roundRect(900-(www/2).toFixed(),h+30,www,hhh, [40]);
+ctx.clip();
+
+// 860 ---> hhh
+//photo1
+photo1_image.onload =() => {
+var www1 = 0;
+var hhh1 = 0;
+if((photo1_image.width/photo1_image.height) > ((www/2).toFixed()/hhh)){
+
+www1 = ((www/2).toFixed() * photo1_image.height / hhh).toFixed()
+hhh1 = photo1_image.height
+
+}else if((photo1_image.width/photo1_image.height) < ((www/2).toFixed()/hhh)){
+hhh1 = (hhh * photo1_image.width / (www/2).toFixed()).toFixed()
+www1 = photo1_image.width
+}else if((photo1_image.width/photo1_image.height) == ((www/2).toFixed()/hhh)){
+hhh1 = hhh
+www1 = (www/2).toFixed()
+}
+ctx.drawImage(photo1_image, ((photo1_image.width-www1)/2).toFixed(), ((photo1_image.height-hhh1)/2).toFixed(),www1,hhh1,897-(www/2).toFixed(),h+30,(www/2).toFixed(),hhh)
+}
+
+photo1_image.src = photo1_imageData
+//photo2
+photo2_image.onload =() => {
+var www2 = 0;
+var hhh2 = 0;
+if((photo2_image.width/photo2_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www2 = ((www/2).toFixed() * photo2_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh2 = photo2_image.height
+
+}else if((photo2_image.width/photo2_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh2 = ((hhh/2-3).toFixed() * photo2_image.width / (www/2).toFixed()).toFixed()
+www2 = photo2_image.width
+}else if((photo2_image.width/photo2_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh2 = (hhh/2-3).toFixed()
+www2 = (www/2).toFixed()
+}
+ctx.drawImage(photo2_image, ((photo2_image.width-www2)/2).toFixed(), ((photo2_image.height-hhh2)/2).toFixed(),www2,hhh2,903,h+30,(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo2_image.src = photo2_imageData
+//photo3
+photo3_image.onload =() => {
+var www3 = 0;
+var hhh3 = 0;
+if((photo3_image.width/photo3_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www3 = ((www/2).toFixed() * photo3_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh3 = photo3_image.height
+
+}else if((photo3_image.width/photo3_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh3 = ((hhh/2-3).toFixed() * photo3_image.width / (www/2).toFixed()).toFixed()
+www3 = photo3_image.width
+}else if((photo3_image.width/photo3_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh3 = (hhh/2-3).toFixed()
+www3 = (www/2).toFixed()
+}
+ctx.drawImage(photo3_image, ((photo3_image.width-www3)/2).toFixed(), ((photo3_image.height-hhh3)/2).toFixed(),www3,hhh3,903,(h+33+hhh/2).toFixed(),(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo3_image.src = photo3_imageData
+
+
+h += 50+ hhh
+ctx.restore()
+}else if (photos.length >= 4){
+
+ctx.save();  
+ctx.beginPath();
+var photo1_image = new Image()
+var photo1_imageData = await ImgD.encodeFromURL(photos[0])
+var photo2_image = new Image()
+var photo2_imageData = await ImgD.encodeFromURL(photos[1])
+var photo3_image = new Image()
+var photo3_imageData = await ImgD.encodeFromURL(photos[2])
+var photo4_image = new Image()
+var photo4_imageData = await ImgD.encodeFromURL(photos[3])
+var hhh = 960;
+var www = 1710;
+if(perfect_h < 960){
+  hhh = perfect_h
+  www = (1710/960*hhh).toFixed()
+}
+
+ctx.roundRect(900-(www/2).toFixed(),h+30,www,hhh, [40]);
+ctx.clip();
+
+// 860 ---> hhh 897-(www/2).toFixed()
+//photo1
+photo1_image.onload =() => {
+var www1 = 0;
+var hhh1 = 0;
+if((photo1_image.width/photo1_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www1 = ((www/2).toFixed() * photo1_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh1 = photo1_image.height
+
+}else if((photo1_image.width/photo1_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh1 = ((hhh/2-3).toFixed() * photo1_image.width / (www/2).toFixed()).toFixed()
+www1 = photo1_image.width
+}else if((photo1_image.width/photo1_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh1 = (hhh/2-3).toFixed()
+www1 = (www/2).toFixed()
+}
+ctx.drawImage(photo1_image, ((photo1_image.width-www1)/2).toFixed(), ((photo1_image.height-hhh1)/2).toFixed(),www1,hhh1,897-(www/2).toFixed(),h+30,(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo1_image.src = photo1_imageData
+//photo2
+photo2_image.onload =() => {
+var www2 = 0;
+var hhh2 = 0;
+if((photo2_image.width/photo2_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www2 = ((www/2).toFixed() * photo2_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh2 = photo2_image.height
+
+}else if((photo2_image.width/photo2_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh2 = ((hhh/2-3).toFixed() * photo2_image.width / (www/2).toFixed()).toFixed()
+www2 = photo2_image.width
+}else if((photo2_image.width/photo2_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh2 = (hhh/2-3).toFixed()
+www2 = (www/2).toFixed()
+}
+ctx.drawImage(photo2_image, ((photo2_image.width-www2)/2).toFixed(), ((photo2_image.height-hhh2)/2).toFixed(),www2,hhh2,903,h+30,(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo2_image.src = photo2_imageData
+//photo3
+photo3_image.onload =() => {
+var www3 = 0;
+var hhh3 = 0;
+if((photo3_image.width/photo3_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www3 = ((www/2).toFixed() * photo3_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh3 = photo3_image.height
+
+}else if((photo3_image.width/photo3_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh3 = ((hhh/2-3).toFixed() * photo3_image.width / (www/2).toFixed()).toFixed()
+www3 = photo3_image.width
+}else if((photo3_image.width/photo3_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh3 = (hhh/2-3).toFixed()
+www3 = (www/2).toFixed()
+}
+ctx.drawImage(photo3_image, ((photo3_image.width-www3)/2).toFixed(), ((photo3_image.height-hhh3)/2).toFixed(),www3,hhh3,897-(www/2).toFixed(),(h+33+hhh/2).toFixed(),(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo3_image.src = photo3_imageData
+
+//photo4
+photo4_image.onload =() => {
+var www4 = 0;
+var hhh4 = 0;
+if((photo4_image.width/photo4_image.height) > ((www/2).toFixed()/(hhh/2-3).toFixed())){
+
+www4 = ((www/2).toFixed() * photo4_image.height / (hhh/2-3).toFixed()).toFixed()
+hhh4 = photo4_image.height
+
+}else if((photo4_image.width/photo4_image.height) < ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh4 = ((hhh/2-3).toFixed() * photo4_image.width / (www/2).toFixed()).toFixed()
+www4 = photo4_image.width
+}else if((photo4_image.width/photo4_image.height) == ((www/2).toFixed()/(hhh/2-3).toFixed())){
+hhh4 = (hhh/2-3).toFixed()
+www4 = (www/2).toFixed()
+}
+ctx.drawImage(photo4_image, ((photo4_image.width-www4)/2).toFixed(), ((photo4_image.height-hhh4)/2).toFixed(),www4,hhh4,903,(h+33+hhh/2).toFixed(),(www/2).toFixed(),(hhh/2-3).toFixed())
+}
+photo4_image.src = photo4_imageData
+h += 50+ hhh
+ctx.restore()
+}
+
 }
 //-----------------------end----------------
 
