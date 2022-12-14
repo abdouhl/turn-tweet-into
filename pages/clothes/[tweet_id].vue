@@ -154,15 +154,15 @@ watch(tweet_url, (new_tweet_url) => {
           <div class="flex items-center">
 						<label for="toggle" class="text-xl  pr-8">Show Media:</label>
 						<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-								<input type="checkbox" v-model="cond.show_media" true-value="true" false-value="false" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-								<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+								<input type="checkbox" v-model="cond.show_media" true-value="true" false-value="false" id="toggle_show_media" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+								<label for="toggle_show_media" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
 						</div>
 					</div>
 					<div class="flex items-center pt-4">
 						<label for="toggle" class="text-xl  pr-8">Show Info:</label>
 						<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-								<input type="checkbox" v-model="cond.show_info" true-value="true" false-value="false" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-								<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+								<input type="checkbox" v-model="cond.show_info" true-value="true" false-value="false" id="toggle_show_info" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+								<label for="toggle_show_info" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
 						</div>
 					</div>
       </div> 
