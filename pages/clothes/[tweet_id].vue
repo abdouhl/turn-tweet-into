@@ -34,8 +34,8 @@ const links = {
 const image = reactive({
   color: 'white',
   type: "t_shirt",
-  w_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1024&at=238414036962221940&t_image1_url=",
-  b_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1028&at=238414036962221940&t_image1_url="
+  w_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=",
+  b_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url="
 })
 const tweet_url =  reactive({url:'https://twitter.com/_/status/'+tweet_id})
 
