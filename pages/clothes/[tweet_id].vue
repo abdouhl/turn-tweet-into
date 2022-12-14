@@ -131,7 +131,7 @@ watch(tweet_url, (new_tweet_url) => {
 
 <section style="background-color: #E6E2D9;" class="w-screen  pb-4 md:pb-0 md:h-screen " >
 <div class="flex md:flex-row flex-col w-full px-1 md:px-8 md:items-center">
-<h1 ><NuxtLink style="font-family: 'Lobster', cursive;" class="align-middle h-fit text-center md:text-start text-3xl my-2 font-bold hover:text-blue-500" to="/">Turn Tweet Into</NuxtLink></h1>
+<h1 style="font-family: 'Lobster', cursive;" class="align-middle h-fit text-center md:text-start text-3xl my-2 font-bold hover:text-blue-500" ><NuxtLink  to="/">Turn Tweet Into</NuxtLink></h1>
 <div class="grow flex flex-row justify-items-center justify-center py-2 md:py-4" >
   <input class="w-full md:w-6/12 lg:w-5/12 placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-2 border md:border-2 border-black  rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
   <NuxtLink class="self-stretch mx-1 md:mx-2  p-2 border md:border-2  border-black  rounded-lg bg-stone-100 text-gray-500 text-xs md:text-xl font-bold" :to="next_tweet">Submit</NuxtLink>
