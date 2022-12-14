@@ -179,11 +179,11 @@ watch(tweet_url, (new_tweet_url) => {
 .toggle-checkbox:checked {
   @apply: right-0 border-green-400;
   right: 0;
-  border-color: #68D391;
+  border-color: rgb(59 130 246 / 1);
 }
 .toggle-checkbox:checked + .toggle-label {
   @apply: bg-green-400;
-  background-color: #68D391;
+  background-color: rgb(59 130 246 / 1);
 }
 </style>
 
