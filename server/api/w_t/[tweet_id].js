@@ -63,7 +63,7 @@ if(part[0] === '@' || part[0] === '#'){
 
 ctx.fillStyle = "rgb(29, 155, 240)";
 ctx.textBaseline = 'top'
-ctx.font = '68px chirp_regular';
+ctx.font = '57px chirp_regular';
 //ctx.fillText(part, w, h);
 ctx.direction = tweet_text_dir;
 await fillTextWithTwemoji(ctx,part, w, h);
@@ -72,7 +72,7 @@ await fillTextWithTwemoji(ctx,part, w, h);
 
 ctx.fillStyle = "black";
 ctx.textBaseline = 'top'
-ctx.font = '68px chirp_regular';
+ctx.font = '57px chirp_regular';
 //ctx.fillText(part, w, h);
 ctx.direction = tweet_text_dir;
 await fillTextWithTwemoji(ctx,part, w, h);

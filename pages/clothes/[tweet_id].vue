@@ -4,7 +4,6 @@
 
 
 const {tweet_id} = useRoute().params
-
 useHead({
   title: 'Turn Tweet Into',
   meta: [
@@ -19,7 +18,6 @@ useHead({
     {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lobster&display=swap'},
   ]
 })
-
 
 const colorActiveBtnClasses = reactive(["color-choose","w-8","h-8","md:w-12","md:h-12","rounded-md","ring-offset-stone-200","ring-offset-4","ring-2"])
 const colorDESActiveBtnClasses = reactive(["color-choose","cursor-pointer","w-8","h-8","md:w-12","md:h-12","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-4","hover:ring-2","hover:ring-white"])
@@ -45,11 +43,31 @@ const links = {
     black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=149563842495834714&ed=true&tc=&ic=&t_image2_iid=',
   },
 }
+const imgs = {
+  t_shirt:{
+    white:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=',
+  },
+  s_shirt:{
+    white:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&max_dim=1028&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&style=truemade_mens_crew_sweatshirt_z260&size=a_s&color=black&max_dim=1028&at=238414036962221940&t_image1_url=',
+  },
+  hoodie:{
+    white:'https://rlv.zcache.com/svc/view?pid=235828058479628416&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=white&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
+  },
+  totebag:{
+    white:'https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
+  },
+}
+
+
 const image = reactive({
   color: 'white',
-  type: "t_shirt",
-  w_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=",
-  b_url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url="
+  type: useRoute().query.type !=  undefined ? useRoute().query.type : "t_shirt",
+  w_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['white'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=" ,
+  b_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['black'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=",
 })
 const tweet_url =  reactive({url:'https://twitter.com/_/status/'+tweet_id})
 
