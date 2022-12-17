@@ -108,8 +108,10 @@ ctx.clip();
 ctx.drawImage(photo1_image, 0, 0,photo1_image.width,photo1_image.height,900-(www/2).toFixed(),h+30,www,hhh)
 }
 photo1_image.src = photo1_imageData
-h += 50+ hhh
+h = parseInt(h)+50+ parseInt(hhh)
 ctx.restore()
+console.log("hhh",hhh)
+console.log("h",h)
 }else if (photos.length == 2){
 
 ctx.save();  
@@ -170,7 +172,7 @@ ctx.drawImage(photo2_image, ((photo2_image.width-www2)/2).toFixed(), ((photo2_im
 photo2_image.src = photo2_imageData
 
 
-h += 50+ hhh
+h = parseInt(h)+50+ parseInt(hhh)
 ctx.restore()
 }else if (photos.length == 3){
 
@@ -253,9 +255,9 @@ ctx.drawImage(photo3_image, ((photo3_image.width-www3)/2).toFixed(), ((photo3_im
 photo3_image.src = photo3_imageData
 
 
-h += 50+ hhh
+h = parseInt(h)+50+ parseInt(hhh)
 ctx.restore()
-}else if (photos.length >= 4){
+}else if (photos.length == 4){
 
 ctx.save();  
 ctx.beginPath();
@@ -355,13 +357,13 @@ www4 = (www/2).toFixed()
 ctx.drawImage(photo4_image, ((photo4_image.width-www4)/2).toFixed(), ((photo4_image.height-hhh4)/2).toFixed(),www4,hhh4,903,(h+33+hhh/2).toFixed(),(www/2).toFixed(),(hhh/2-3).toFixed())
 }
 photo4_image.src = photo4_imageData
-h += 50+ hhh
+h = parseInt(h)+50+ parseInt(hhh)
 ctx.restore()
 }
 
 }
 //-----------------------end----------------
-
+console.log(h)
 //-----------------------info----------------
 if(show_info != "false"){
 // add like image
