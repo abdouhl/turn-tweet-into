@@ -23,8 +23,9 @@ const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_
 
 
 const canvas = createCanvas(1800, 2100)
+const canvas1 = createCanvas(360,420)
 const ctx = canvas.getContext('2d')
-
+const ctx1 = canvas1.getContext('2d')
 
 ctx.fillStyle = "black";
 // name
@@ -401,9 +402,12 @@ profile_image.src = profile_imageData
 // finish profile image
 
 
+var final_image = new Image()
+const final_imageData = canvas.toDataURL()
+final_image.onload =() => ctx1.drawImage(final_image, 0, 0,final_image.width,final_image.height,0,0,360,420)
+final_image.src = final_imageData
 
 
-
-  return  canvas.createPNGStream() 
+  return  canvas1.createPNGStream() 
 })
 
