@@ -36,7 +36,7 @@ ctx.fillStyle = "rgb(83, 100, 113)";
 ctx.textBaseline = 'top'
 ctx.font = '45px chirp_regular';
 ctx.fillText('@'+username, 226, 116);
-
+/*
 // follow btn
 var follow_image = new Image();
 follow_image.onload = () => ctx.drawImage(follow_image, 0, 0,follow_image.width,follow_image.height,1336,60,266,102)
@@ -48,7 +48,7 @@ var arrow_image = new Image();
 arrow_image.onload = () => ctx.drawImage(arrow_image, 0, 0,arrow_image.width,arrow_image.height,1702,89,44,44)
 const arrow_imageData = await ImgD.encodeFromURL('https://www.turntweetinto.com/arrow-down-3101.png')
 arrow_image.src = arrow_imageData
-
+*/
 //text 
 
 var h = 220;

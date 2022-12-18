@@ -183,7 +183,7 @@ watch(tweet_url, (new_tweet_url) => {
 
 
     <div class="flex flex-col md:flex-row justify-items-center px-2 md:px-8 md:h-4/6 ">
-    <div class=" h-full w-fit justify-self-center"><img id="img"  class="rounded-lg border md:border-2 border-black object-contain h-full w-fit" :src="image_url" /></div>
+    <div class=" h-full w-fit justify-self-center"><img id="img"  class="rounded-lg border md:border-2 border-black object-contain h-full w-fit aspect-square" :src="image_url" /></div>
     <div class="w-full md:w-fit flex flex-col pl-4 md:ml-8 grow h-full justify-between">
       
       <div >
