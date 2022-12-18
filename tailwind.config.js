@@ -7,7 +7,11 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      aspectRatio: {
+        '6/7': '6 / 7',
+      },
+    },
   },
   plugins: [],
 }
