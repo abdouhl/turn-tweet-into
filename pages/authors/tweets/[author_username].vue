@@ -19,7 +19,7 @@ const {pending,data:author} = useLazyFetch('/api/a_t/'+author_username,{key: aut
     </div>
   <div class="grid grid-cols-4 gap-8 mt-4">
     <div class=" border md:border-2 border-black  rounded-lg bg-stone-100 p-2" v-for="tweet_id in author.tweets" >
-      <NuxtLink  :to="'/clothes/'+tweet_id"><img class="w-full  mx-auto" :src="'/api/w_t/'+tweet_id"/></NuxtLink>
+      <NuxtLink  :to="'/clothes/'+tweet_id"><nuxt-img :src="'/api/w_t/'+tweet_id" width="1800" height="2100" loading="lazy"  sizes="sm:100vw md:50vw lg:25vw" class="w-full  mx-auto" /></NuxtLink>
       <h3 class="text-center pt-2 text-xl" >{{}}</h3>
      
     </div>
