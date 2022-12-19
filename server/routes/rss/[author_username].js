@@ -27,7 +27,7 @@ for(var tweet of author.tweets) {
 //tshirt black	
 	feed.item({
     title: tweet.text,
-    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=t_shirt",
+    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=t_shirt&color=black",
     description: author.name+" Tweet tshirt: "+tweet.text,
     guid: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=t_shirt-b",
     enclosure: {url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/b_t/"+tweet.id+"-true-true",'type' : 'image/jpeg'}, // optional enclosure
@@ -43,7 +43,7 @@ for(var tweet of author.tweets) {
 //sshirt black	
 	feed.item({
     title: tweet.text,
-    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=s_shirt",
+    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=s_shirt&color=black",
     description: author.name+" Tweet sshirt: "+tweet.text,
     guid: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=s_shirt-b",
     enclosure: {url:"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&style=truemade_mens_crew_sweatshirt_z260&size=a_s&color=black&max_dim=1028&at=238414036962221940&t_image1_url=https://www.turntweetinto.com/api/b_t/"+tweet.id+"-true-true",'type' : 'image/jpeg'}, // optional enclosure
@@ -61,7 +61,7 @@ for(var tweet of author.tweets) {
 //hoodie black	
 	feed.item({
     title: tweet.text,
-    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=hoodie",
+    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=hoodie&color=black",
     description: author.name+" Tweet hoodie: "+tweet.text,
     guid: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=hoodie-b",
     enclosure: {url:"https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=https://www.turntweetinto.com/api/b_t/"+tweet.id+"-true-true",'type' : 'image/jpeg'}, // optional enclosure
@@ -79,7 +79,7 @@ for(var tweet of author.tweets) {
 //totebag black	
 	feed.item({
     title: tweet.text,
-    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=totebag",
+    url: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=totebag&color=black",
     description: author.name+" Tweet totebag: "+tweet.text,
     guid: "https://www.turntweetinto.com/clothes/"+tweet.id+"?type=totebag-b",
     enclosure: {url:"https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=https://www.turntweetinto.com/api/b_t/"+tweet.id+"-true-true",'type' : 'image/jpeg'}, // optional enclosure
