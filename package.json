@@ -17,6 +17,7 @@
     "canvas": "^2.10.2",
     "feed": "^4.2.2",
     "image-data-uri": "^2.0.1",
-    "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1"
+    "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1",
+    "rss": "^1.2.2"
   }
 }
