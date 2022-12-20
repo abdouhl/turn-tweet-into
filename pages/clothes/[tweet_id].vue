@@ -77,11 +77,14 @@ const cond  = reactive({show_media:'true',show_info:'true'})
 
 var next_tweet =null
 onMounted(() => {
-	imgloading.state=false
+	//imgloading.state=false
 })
 
 function makeImgDone(event) {
-    imgloading.state=false
+		if(imgloading.state){
+		imgloading.state=false
+		}
+    
 		console.log('done')
 }
 function changeUrl(event) {
@@ -191,9 +194,9 @@ watch(tweet_url, (new_tweet_url) => {
 
 
     <div class="flex flex-col md:flex-row justify-items-center px-2 md:px-8 md:h-4/6 ">
-    <div class="relative h-full w-fit justify-self-center ">
-    <nuxt-img  @load="makeImgDone"  id="img" class="rounded-lg object-contain h-full w-fit aspect-square " :src="image_url" />
-    <div v-if="imgloading.state"  class="absolute top-0 left-0 rounded-lg f w-full h-full grid content-center justify-center aspect-square bg-stone-100">
+    <div class="relative h-full w-full md:w-fit justify-self-center ">
+    
+    <div   class="rounded-lg f w-full h-full grid content-center justify-center aspect-square bg-stone-100">
 <div role="status" class="w-fit" >
     <svg class="inline mr-2 w-16 h-16 text-stone-100 animate-spin  fill-black  mx-auto" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -202,7 +205,7 @@ watch(tweet_url, (new_tweet_url) => {
     <span class="sr-only">Loading...</span>
 </div>
 </div>
-    
+    <nuxt-img  @load="makeImgDone"  id="img" class="absolute top-0 left-0 rounded-lg object-contain h-full w-full aspect-square z-40" :src="image_url" />
     </div>
     <div class="w-full md:w-fit flex flex-col pl-4 md:ml-8 grow h-full justify-between">
       
