@@ -17,14 +17,14 @@ const {pending,data:author} = useLazyFetch('/api/a_t/'+author_username,{key: aut
 </div>
 </div>
   <div v-else class="px-2 md:px-24 lg:px-36 w-full max-w-7xl mx-auto py-2 md:py-4">
-    <div class=" border md:border-2 border-black col-span-1 rounded-lg bg-stone-100 p-2"  >
+    <div class=" col-span-1 rounded-lg bg-stone-100 p-2"  >
       <img class="rounded-full h-28 mx-auto" :src="author.profile_image"/>
       <h3 class="text-center pt-2 text-xl" >{{author.name}}</h3>
       <p class="text-center text-gray-500 text-xs" >@{{author.username}}</p>
       
     </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-8 mt-2 md:mt-4">
-    <div class=" border md:border-2 border-black  rounded-lg bg-stone-100" v-for="tweet_id in author.tweets" >
+    <div class=" hover:border  border-black  rounded-lg bg-stone-100" v-for="tweet_id in author.tweets" >
       <NuxtLink  :to="'/clothes/'+tweet_id"><img :src="'/api/thumb/'+tweet_id"  loading="lazy" width="320" height="420"  class="w-full mx-auto" /></NuxtLink>
      
     </div>

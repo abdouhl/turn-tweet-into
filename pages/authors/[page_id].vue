@@ -21,7 +21,7 @@ const {pending,data:authors} = useLazyFetch('/api/a_p/'+page_id,{key: page_id})
 </div>
   <div v-else>
 		<div class="grid mx-auto w-fit grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-8 mt-2 md:mt-4 px-2 md:px-24 lg:px-36">
-		  <div class="aspect-square  max-h-60 border md:border-2 border-black  rounded-lg bg-stone-100 p-2" v-for="author in authors" >
+		  <div class="aspect-square  max-h-60   rounded-lg bg-stone-100 p-2" v-for="author in authors" >
 		    <nuxt-img class="rounded-full h-28 mx-auto" :src="author.profile_image" loading="lazy" />
 		    <h3 class="text-center pt-2 text-xl" >{{author.name}}</h3>
 		    <p class="text-center text-gray-500 text-xs" >@{{author.screen_name}}</p>
@@ -30,8 +30,8 @@ const {pending,data:authors} = useLazyFetch('/api/a_p/'+page_id,{key: page_id})
   </div>
   <div class="w-fit mx-auto">
   	<div class="w-fit inline-flex justify-center">
-  		<div v-if="page_id != '1'" class="my-2 mx-1 border md:border-2 p-2 border-black  rounded-lg bg-stone-100"><NuxtLink class="" :to="'/authors/'+(parseInt(page_id)-1)">previous</NuxtLink></div>
-  		<div v-if="page_id != '157'" class="my-2 mx-1 border md:border-2 p-2 border-black  rounded-lg bg-stone-100" ><NuxtLink class="" :to="'/authors/'+(parseInt(page_id)+1)">next</NuxtLink></div>
+  		<div v-if="page_id != '1'" class="my-2 mx-1 border  p-2 border-black  rounded-lg bg-stone-100"><NuxtLink class="" :to="'/authors/'+(parseInt(page_id)-1)">previous</NuxtLink></div>
+  		<div v-if="page_id != '157'" class="my-2 mx-1 border p-2 border-black  rounded-lg bg-stone-100" ><NuxtLink class="" :to="'/authors/'+(parseInt(page_id)+1)">next</NuxtLink></div>
   		
   	</div>
   </div>
