@@ -18,19 +18,19 @@ next_tweet = computed(() => {
 <div class="flex md:flex-row flex-col w-full px-1 md:px-8 md:items-center">
 <h1 style="font-family: 'Lobster', cursive;" class="align-middle h-fit text-center md:text-start text-3xl my-2 font-bold hover:text-blue-500" ><NuxtLink  to="/">Turn Tweet Into</NuxtLink></h1>
 <div class="grow flex flex-row justify-items-center justify-center py-2 md:py-4" >
-  <input class="w-full md:w-6/12 lg:w-5/12 placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-2 border md:border-2 border-black  rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
-  <NuxtLink class="self-stretch mx-1 md:mx-2  p-2 border md:border-2  border-black  rounded-lg bg-stone-100 text-gray-500 text-xs md:text-xl font-bold" :to="next_tweet">Submit</NuxtLink>
+  <input class="w-full md:w-6/12 lg:w-5/12 placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-2 rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
+  <NuxtLink class="self-stretch mx-1 md:mx-2  p-2 border border-black  rounded-lg bg-stone-100 text-gray-500 text-xs md:text-xl font-bold" :to="next_tweet">Submit</NuxtLink>
 </div>
 </div>
 </section>
 
 <section class="w-screen pb-4 px-1 md:px-8" >
-<div class="w-48 border md:border-2 border-black  rounded-lg bg-stone-100 divide-y md:divide-y-2 divide-black">
-<h2 class="text-xl text-center py-1 md:px-2" style="font-family: Lobster, cursive;">Clothing</h2>
+<div class="w-48 rounded-lg bg-stone-100 divide-y  px-1 md:px-2">
+<h2 class="text-xl text-center py-1 " style="font-family: Lobster, cursive;">Clothing</h2>
 <ul class="p-1 md:p-2">
-<li><NuxtLink class="font-bold" to="/clothes?type=t_shirt">T-shirt</NuxtLink></li>
-<li><NuxtLink class="font-bold" to="/clothes?type=s_shirt">S-shirt</NuxtLink></li>
-<li><NuxtLink class="font-bold" to="/clothes?type=hoodie">Hoodie</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/clothes?type=t_shirt">Tshirt</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/clothes?type=s_shirt">Sweatshirt</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/clothes?type=hoodie">Hoodie</NuxtLink></li>
 </ul>
 
 
