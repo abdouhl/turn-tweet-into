@@ -77,7 +77,7 @@ const cond  = reactive({show_media:'true',show_info:'true'})
 
 var next_tweet =null
 onMounted(() => {
-	//imgloading.state=false
+	imgloading.state=false
 })
 
 function makeImgDone(event) {
@@ -192,7 +192,7 @@ watch(tweet_url, (new_tweet_url) => {
 
     <div class="flex flex-col md:flex-row justify-items-center px-2 md:px-8 md:h-4/6 ">
     <div class="relative h-full w-fit justify-self-center ">
-    <nuxt-img  @load="makeImgDone"  id="img" preload class="rounded-lg object-contain h-full w-fit aspect-square " :src="image_url" />
+    <nuxt-img  @load="makeImgDone"  id="img" class="rounded-lg object-contain h-full w-fit aspect-square " :src="image_url" />
     <div v-if="imgloading.state"  class="absolute top-0 left-0 rounded-lg f w-full h-full grid content-center justify-center aspect-square bg-stone-100">
 <div role="status" class="w-fit" >
     <svg class="inline mr-2 w-16 h-16 text-stone-100 animate-spin  fill-black  mx-auto" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
