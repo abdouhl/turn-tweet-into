@@ -10,13 +10,16 @@ var ll = tweet_id.split('-')
 var tweet_id = ll[0]
 var show_media = "true"
 var show_info = "true"
+var crop_it="false"
 if(ll.length == 2){
 show_media = ll[1]
 }else if(ll.length >= 3){
 show_media = ll[1]
 show_info = ll[2]
 }
-
+if(ll.length >=4 ){
+crop_it = ll[3]
+}
 
 const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
@@ -398,6 +401,16 @@ profile_image.src = profile_imageData
 
 // finish profile image
 
+if(crop_it =="true" ){
+const canvas1 = createCanvas(1800,h+128)
+const ctx1 = canvas1.getContext('2d')
+
+var final_image = new Image()
+const final_imageData = canvas.toDataURL()
+final_image.onload =() => ctx1.drawImage(final_image, 0, 0,1800,h+128,0,0,1800,h+128)
+final_image.src = final_imageData
+  return  canvas1.createPNGStream() 
+}
 
 
 
