@@ -39,7 +39,7 @@ next_tweet = computed(() => {
 <div class="rounded-lg bg-stone-100 divide-y  px-1 md:px-2">
 <h2 class="text-xl text-center py-1 " style="font-family: Lobster, cursive;">Accessories</h2>
 <ul class="p-1 md:p-2">
-<li><NuxtLink class="hover:text-blue-500" to="/clothes?type=t_shirt">Tote Bag</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/accessories?type=totebag">Tote Bag</NuxtLink></li>
 <li><NuxtLink class="line-through" >Face Mask</NuxtLink></li>
 <li><NuxtLink class="line-through" >Water bottle</NuxtLink></li>
 <li><NuxtLink class="line-through" >Travel mug</NuxtLink></li>

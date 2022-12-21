@@ -10,18 +10,16 @@ next_tweet = computed(() => {
     if(!tweet_url.url ||tweet_url.url == ("https://twitter.com/_/status/"+tweet_id) || tweet_url.url == ""){
     return null
     }else{
-    return  "/clothes/"+tweet_url.url.split('/')[tweet_url.url.split('/').indexOf('status')+1]+"?type="+type
+    return  "/accessories/"+tweet_url.url.split('/')[tweet_url.url.split('/').indexOf('status')+1]+"?type="+type
     }
 })
 
 const type_title = computed(() => {
 
-    if( type == "hoodie"){
-    return "Hoodie"
+    if( type == "totebag"){
+    return "Tote Bag"
     }else if( type == "t_shirt"){
     return  "Tshirt"
-    }else if( type == "s_shirt"){
-    return  "Sweatshirt"
     }
 })
 
@@ -34,7 +32,7 @@ const type_title = computed(() => {
 <div class="w-full flex flex-row justify-items-center justify-center py-2 md:py-4" >
 <div class="relative w-full md:w-6/12 lg:w-5/12">
   <input class="h-full w-full placeholder-gray-400 focus:placeholder-transparent text-xs md:text-xl text-gray-500 pl-1 md:pl-4  md:py-2 rounded-lg bg-stone-100  focus:outline-none" v-model="tweet_url.url" placeholder="Enter Tweet URL here">
-  <p class="absolute -bottom-8 md:-bottom-5 left-1 text-xs">ex: <NuxtLink class="text-blue-500" :to="'/clothes/1604650028999405568?type='+type">https://twitter.com/elonmusk/status/1604650028999405568</NuxtLink></p>
+  <p class="absolute -bottom-8 md:-bottom-5 left-1 text-xs">ex: <NuxtLink class="text-blue-500" :to="'/accessories/1604650028999405568?type='+type">https://twitter.com/elonmusk/status/1604650028999405568</NuxtLink></p>
   </div>
   <NuxtLink class="self-stretch mx-1 md:mx-2  p-2 border border-black  rounded-lg bg-stone-100 text-gray-500 text-xs md:text-xl font-bold" :to="next_tweet">Submit</NuxtLink>
   

@@ -17,42 +17,26 @@ const imgloading = reactive({state:true})
 const typeActiveBtnClasses = reactive(["text-xs","md:text-xl","type-choose","rounded-md","rounded-md","bg-stone-100","ring-offset-stone-200","ring-offset-2","md:ring-offset-4","ring-2","p-1","md:p-2"])
 const typeDESActiveBtnClasses = reactive(["text-xs","md:text-xl","type-choose","cursor-pointer","bg-stone-100","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-2","md:hover:ring-offset-4","hover:ring-2","hover:ring-white","p-1","md:p-2"])
 const links = {
-  t_shirt:{
-    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235293855806478511&ed=false&tc=&ic=&t_image1_iid=',
-    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235081497385425037&ed=false&tc=&ic=&t_image2_iid=',
+  totebag:{
+    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=149858228431944112&ed=true&tc=&ic=&t_image1_iid=',
+    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=149563842495834714&ed=true&tc=&ic=&t_image2_iid=',
   },
-  s_shirt:{
-    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235870585213574671&ed=false&tc=&ic=&t_image1_iid=',
-    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235706930408917412&ed=false&tc=&ic=&t_image2_iid=',
-  },
-  hoodie:{
-    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235828058479628416&ed=true&tc=&ic=&t_image1_iid=',
-    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235750125344025205&ed=true&tc=&ic=&t_image2_iid=',
-  },
-  
 }
 const imgs = {
-  t_shirt:{
-    white:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=',
-    black:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=',
-  },
-  s_shirt:{
-    white:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&max_dim=1028&at=238414036962221940&t_image1_url=',
-    black:'https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&style=truemade_mens_crew_sweatshirt_z260&size=a_s&color=black&max_dim=1028&at=238414036962221940&t_image1_url=',
-  },
-  hoodie:{
-    white:'https://rlv.zcache.com/svc/view?pid=235828058479628416&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=white&max_dim=1080&at=238414036962221940&t_image1_url=',
-    black:'https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
+  totebag:{
+    white:'https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
   },
 }
 
 
 const image = reactive({
   color: useRoute().query.color !=  undefined ? useRoute().query.color : 'white',
-  type: useRoute().query.type !=  undefined ? useRoute().query.type : "t_shirt",
-  w_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['white'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=" ,
-  b_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['black'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=",
+  type: useRoute().query.type !=  undefined ? useRoute().query.type : "totebag",
+  w_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['white'] :"https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=" ,
+  b_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['black'] :"https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=",
 })
+
 
 
 const tweet_url =  reactive({url:'https://twitter.com/_/status/'+tweet_id})
@@ -131,12 +115,8 @@ const png_url = computed(() => {
 })
 const type_title = computed(() => {
 
-    if( image.type == "hoodie"){
-    return "Hoodie"
-    }else if( image.type == "t_shirt"){
-    return  "Tshirt"
-    }else if( image.type == "s_shirt"){
-    return  "Sweatshirt"
+    if( image.type == "totebag"){
+    return "Tote Bag"
     }
 })
 
@@ -176,16 +156,9 @@ useHead({
 </div>
 <div class="px-2 md:px-8 py-2 md:py-4 h-fit md:h-1/6">
       <div class="flex flex-row gap-2 md:gap-4">
-          <div  @click.self="changeUrl" data-url-black="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=" data-url-white="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="t_shirt" :class="image.type == 't_shirt' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.35 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>T-Shirt</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M4.89,19.55,11.72,19a.86.86,0,0,1,1,.65c0,.06,0,.12,0,.17v28.5H41.61V19.81a.85.85,0,0,1,.85-.84,1,1,0,0,1,.24,0l6.76.55L52.52,8.37,36.43,2.05a9.13,9.13,0,0,1-2.66,5.3,9.39,9.39,0,0,1-6.6,2.7,9.36,9.36,0,0,1-6.59-2.7,9.2,9.2,0,0,1-2.67-5.3L1.83,8.37ZM34.75,1.85a50.7,50.7,0,0,1-7.58.57,50.68,50.68,0,0,1-7.57-.58,7.55,7.55,0,0,0,2.17,4.32,7.71,7.71,0,0,0,5.4,2.21,7.68,7.68,0,0,0,5.4-2.21A7.47,7.47,0,0,0,34.75,1.85ZM18.87,0a48.73,48.73,0,0,0,8.3.72A47.91,47.91,0,0,0,35.5,0h0a.91.91,0,0,1,.46,0l17.83,7a.84.84,0,0,1,.52,1l-3.39,12.7a.84.84,0,0,1-1,.64l-6.63-.52V49.16a.85.85,0,0,1-.85.84H11.89a.85.85,0,0,1-.85-.84V20.85l-6.62.52a.85.85,0,0,1-1-.64L0,8.06a.83.83,0,0,1,.51-1l17.79-7A1,1,0,0,1,18.68,0ZM37.36,19.09a.84.84,0,1,1,0,1.68H30.57a.84.84,0,1,1,0-1.68Z"></path></g></g></svg>
-              t-shirt</div>
-          <div @click.self="changeUrl" data-url-black="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&style=truemade_mens_crew_sweatshirt_z260&size=a_s&color=black&max_dim=1028&at=238414036962221940&t_image1_url=" data-url-white="https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113758459795474410&max_dim=1028&at=238414036962221940&t_image1_url=" data-type="s_shirt" :class="image.type == 's_shirt' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
-              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.1 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Sweatshirt</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M48.3,5.92,36.64.16a2.18,2.18,0,0,0-1.88.12L26.2,5.12a.28.28,0,0,1-.29,0C25,4.54,19.68,1.51,17.53.28A2.19,2.19,0,0,0,15.66.15L3.8,5.92A6.37,6.37,0,0,0,0,11.7V41.81a.92.92,0,0,0,.93.91H8.4v6.37a.92.92,0,0,0,.93.91H42.76a.93.93,0,0,0,.94-.91V42.72h7.46a.93.93,0,0,0,.94-.91V11.7A6.4,6.4,0,0,0,48.3,5.92ZM16.17,1.79a.18.18,0,0,0,.07-.05L22.32,5.3l1.86,1.09,1.39.82a1,1,0,0,0,1,0l1.38-.82L29.78,5.3l6.07-3.56.07.05,11.6,5.78a4.56,4.56,0,0,1,2.71,4.13V40.9H43.7V17H41.83V48.18H10.26V17H8.4v24H1.87V11.7A4.56,4.56,0,0,1,4.58,7.57Z"></path></g></g></svg>
-              s-shirt</div>
-          <div @click.self="changeUrl" data-url-black="https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=" data-url-white="https://rlv.zcache.com/svc/view?pid=235828058479628416&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=white&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="hoodie" :class="image.type == 'hoodie' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
-              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.1 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Hoodie</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M48.3,5.92,36.64.16a2.18,2.18,0,0,0-1.88.12L26.2,5.12a.28.28,0,0,1-.29,0C25,4.54,19.68,1.51,17.53.28A2.19,2.19,0,0,0,15.66.15L3.8,5.92A6.37,6.37,0,0,0,0,11.7V41.81a.92.92,0,0,0,.93.91H8.4v6.37a.92.92,0,0,0,.93.91H42.76a.93.93,0,0,0,.94-.91V42.72h7.46a.93.93,0,0,0,.94-.91V11.7A6.4,6.4,0,0,0,48.3,5.92ZM16.17,1.79a.18.18,0,0,0,.07-.05L22.32,5.3v9.31a.93.93,0,0,0,1.86,0V6.39l1.39.82a1,1,0,0,0,1,0l1.38-.82v10a.94.94,0,0,0,1.87,0V5.3l6.07-3.56.07.05,11.6,5.78a4.56,4.56,0,0,1,2.71,4.13V40.9H43.7V17H41.83V48.18H10.26V17H8.4v24H1.87V11.7A4.56,4.56,0,0,1,4.58,7.57ZM34.41,31.9H17.69a.92.92,0,0,0-.94.91v9a.93.93,0,0,0,.94.91H34.41a.92.92,0,0,0,.93-.91v-9A.92.92,0,0,0,34.41,31.9Zm-.93,9H18.62V33.62H33.48Z"></path></g></g></svg>
-              hoodie</div>
-          
+          <div @click.self="changeUrl" data-url-black="https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=" data-url-white="https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="totebag" :class="image.type == 'totebag' ? typeActiveBtnClasses : typeDESActiveBtnClasses" class="text-center">
+              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.46 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Totebag</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M39.54,10.42H29.48v-.8A9.44,9.44,0,0,0,20.23,0,9.43,9.43,0,0,0,11,9.62v.8H.92a.94.94,0,0,0-.92,1V45.19A4.72,4.72,0,0,0,4.62,50H35.84a4.72,4.72,0,0,0,4.62-4.81V11.38A.94.94,0,0,0,39.54,10.42Zm-26.71-.8a7.56,7.56,0,0,1,7.4-7.7,7.55,7.55,0,0,1,7.4,7.7v.8H12.83ZM38.61,45.19a2.83,2.83,0,0,1-2.77,2.89H4.62a2.83,2.83,0,0,1-2.77-2.89V12.35H11v6.8a.92.92,0,1,0,1.84,0v-6.8h14.8v6.8a.93.93,0,1,0,1.85,0v-6.8h9.13Z"></path></g></g></svg>
+              totebag</div>
           
       </div>
   </div>
