@@ -36,7 +36,7 @@ ctx.font = 'bold 60px chirp_bold';
 await fillTextWithTwemoji(ctx,name, 226, 106);
 
 var tv_image = new Image();
-tv_image.onload = () => ctx.drawImage(tv_image, 0, 0,tv_image.width,tv_image.height,226+ctx.measureText(name).width,80,50,50)
+tv_image.onload = () => ctx.drawImage(tv_image, 0, 0,tv_image.width,tv_image.height,236+ctx.measureText(name).width,50,50,50)
 const tv_imageData = await ImgD.encodeFromURL('https://www.turntweetinto.com/tv.png')
 if(isverified){
 

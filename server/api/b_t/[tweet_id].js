@@ -35,6 +35,14 @@ ctx.fillStyle = "rgb(231, 233, 234)";
 ctx.font = 'bold 60px chirp_bold';
 await fillTextWithTwemoji(ctx,name, 226, 106);
 
+var tv_image = new Image();
+tv_image.onload = () => ctx.drawImage(tv_image, 0, 0,tv_image.width,tv_image.height,236+ctx.measureText(name).width,50,50,50)
+const tv_imageData = await ImgD.encodeFromURL('https://www.turntweetinto.com/tv.png')
+if(isverified){
+
+tv_image.src = tv_imageData
+}
+
 // username  ?media=false&info=false
 ctx.fillStyle = "rgb(113, 118, 123)";
 ctx.textBaseline = 'top'
