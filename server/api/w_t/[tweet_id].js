@@ -21,7 +21,7 @@ if(ll.length >=4 ){
 crop_it = ll[3]
 }
 
-const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
+const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count,isverified}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
 
 
@@ -35,11 +35,22 @@ ctx.fillStyle = "black";
 ctx.font = 'bold 60px chirp_bold';
 await fillTextWithTwemoji(ctx,name, 226, 106);
 
+var tv_image = new Image();
+tv_image.onload = () => ctx.drawImage(tv_image, 0, 0,tv_image.width,tv_image.height,226+ctx.measureText(name).width,80,50,50)
+const tv_imageData = await ImgD.encodeFromURL('https://www.turntweetinto.com/tv.png')
+if(isverified){
+
+tv_image.src = tv_imageData
+}
+
 // username
 ctx.fillStyle = "rgb(83, 100, 113)";
 ctx.textBaseline = 'top'
 ctx.font = '45px chirp_regular';
 ctx.fillText('@'+username, 226, 116);
+
+
+
 /*
 // follow btn
 var follow_image = new Image();
