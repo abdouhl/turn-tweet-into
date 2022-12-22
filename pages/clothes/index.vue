@@ -22,6 +22,8 @@ const type_title = computed(() => {
     return  "Tshirt"
     }else if( type == "s_shirt"){
     return  "Sweatshirt"
+    }else if( type == "hat"){
+    return  "Hat"
     }
 })
 

@@ -20,6 +20,8 @@ const type_title = computed(() => {
     return "Tote Bag"
     }else if( type == "t_shirt"){
     return  "Tshirt"
+    }else if( type == "mug"){
+    return  "Mug"
     }
 })
 

@@ -14,8 +14,8 @@ const colorDESActiveBtnClasses = reactive(["color-choose","cursor-pointer","w-8"
 
 const imgloading = reactive({state:true})
 
-const typeActiveBtnClasses = reactive(["text-xs","md:text-xl","type-choose","rounded-md","rounded-md","bg-stone-100","ring-offset-stone-200","ring-offset-2","md:ring-offset-4","ring-2","p-1","md:p-2"])
-const typeDESActiveBtnClasses = reactive(["text-xs","md:text-xl","type-choose","cursor-pointer","bg-stone-100","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-2","md:hover:ring-offset-4","hover:ring-2","hover:ring-white","p-1","md:p-2"])
+const typeActiveBtnClasses = reactive(["text-center","text-xs","md:text-xl","type-choose","rounded-md","rounded-md","bg-stone-100","ring-offset-stone-200","ring-offset-2","md:ring-offset-4","ring-2","p-1","md:p-2"])
+const typeDESActiveBtnClasses = reactive(["text-center","text-xs","md:text-xl","type-choose","cursor-pointer","bg-stone-100","rounded-md","hover:ring-offset-stone-200","hover:ring-offset-2","md:hover:ring-offset-4","hover:ring-2","hover:ring-white","p-1","md:p-2"])
 const links = {
   t_shirt:{
     white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235293855806478511&ed=false&tc=&ic=&t_image1_iid=',
@@ -28,6 +28,9 @@ const links = {
   hoodie:{
     white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235828058479628416&ed=true&tc=&ic=&t_image1_iid=',
     black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235750125344025205&ed=true&tc=&ic=&t_image2_iid=',
+  },
+  hat:{
+    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=https%3A%2F%2Fwww.turntweetinto.com%2Fapi%2Fw_t%2F1604650028999405568-true-true-true',
   },
   
 }
@@ -44,11 +47,14 @@ const imgs = {
     white:'https://rlv.zcache.com/svc/view?pid=235828058479628416&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=white&max_dim=1080&at=238414036962221940&t_image1_url=',
     black:'https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
   },
+  hat:{
+    white:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113647281033678299&design=49572798-1dca-4b2b-89b3-65ca9ba277bc&style=trucker_hat&color=white_white&max_dim=1080&at=238414036962221940&t_image1_url=',
+  },
 }
 
 
 const image = reactive({
-  color: useRoute().query.color !=  undefined ? useRoute().query.color : 'white',
+  color: useRoute().query.color !=  undefined && Object.keys(imgs[useRoute().query.type]).includes('black') ? useRoute().query.color : 'white',
   type: useRoute().query.type !=  undefined ? useRoute().query.type : "t_shirt",
   w_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['white'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&max_dim=1080&at=238414036962221940&t_image1_url=" ,
   b_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['black'] :"https://rlv.zazzle.com/svc/view?pid=235293855806478511&realview=113562383382757001&style=hanes_mens_crew_darktshirt_5250&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image1_url=",
@@ -76,7 +82,11 @@ function changeUrl(event) {
     imgloading.state=true
     image.type = event.target.getAttribute('data-type')
     image.w_url = event.target.getAttribute('data-url-white')
+    if(Object.keys(imgs[image.type]).includes('black')){
     image.b_url = event.target.getAttribute('data-url-black')
+		}else{
+		image.color = Object.keys(imgs[image.type])[0]
+		}
 
   }
 }
@@ -115,8 +125,9 @@ function changeColor(event) {
 //event.target.getAttribute('data-url-'+image.color)
 const image_url = computed(() => {
 		imgloading.state=true
+		var hh =image.type == "hat"?"-true":""
     if(image.color=='white'){
-    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'-'+cond.show_media+'-'+cond.show_info
+    return image.w_url + 'https://www.turntweetinto.com/api/w_t/'+tweet_id+'-'+cond.show_media+'-'+cond.show_info + hh
     }else if(image.color=='black'){
     return image.b_url + 'https://www.turntweetinto.com/api/b_t/'+tweet_id+'-'+cond.show_media+'-'+cond.show_info
     }
@@ -137,6 +148,8 @@ const type_title = computed(() => {
     return  "Tshirt"
     }else if( image.type == "s_shirt"){
     return  "Sweatshirt"
+    }else if( image.type == "hat"){
+    return  "Hat"
     }
 })
 
@@ -185,7 +198,9 @@ useHead({
           <div @click.self="changeUrl" data-url-black="https://rlv.zcache.com/svc/view?pid=235750125344025205&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=black&max_dim=1080&at=238414036962221940&t_image2_url=" data-url-white="https://rlv.zcache.com/svc/view?pid=235828058479628416&realview=113577295862783981&style=truemade_mens_pullover_hoodie_z170&size=a_s&color=white&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="hoodie" :class="image.type == 'hoodie' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
               <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.1 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Hoodie</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M48.3,5.92,36.64.16a2.18,2.18,0,0,0-1.88.12L26.2,5.12a.28.28,0,0,1-.29,0C25,4.54,19.68,1.51,17.53.28A2.19,2.19,0,0,0,15.66.15L3.8,5.92A6.37,6.37,0,0,0,0,11.7V41.81a.92.92,0,0,0,.93.91H8.4v6.37a.92.92,0,0,0,.93.91H42.76a.93.93,0,0,0,.94-.91V42.72h7.46a.93.93,0,0,0,.94-.91V11.7A6.4,6.4,0,0,0,48.3,5.92ZM16.17,1.79a.18.18,0,0,0,.07-.05L22.32,5.3v9.31a.93.93,0,0,0,1.86,0V6.39l1.39.82a1,1,0,0,0,1,0l1.38-.82v10a.94.94,0,0,0,1.87,0V5.3l6.07-3.56.07.05,11.6,5.78a4.56,4.56,0,0,1,2.71,4.13V40.9H43.7V17H41.83V48.18H10.26V17H8.4v24H1.87V11.7A4.56,4.56,0,0,1,4.58,7.57ZM34.41,31.9H17.69a.92.92,0,0,0-.94.91v9a.93.93,0,0,0,.94.91H34.41a.92.92,0,0,0,.93-.91v-9A.92.92,0,0,0,34.41,31.9Zm-.93,9H18.62V33.62H33.48Z"></path></g></g></svg>
               hoodie</div>
-          
+          <div @click.self="changeUrl"  data-url-white="https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113647281033678299&design=49572798-1dca-4b2b-89b3-65ca9ba277bc&style=trucker_hat&color=white_white&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="hat" :class="image.type == 'hat' ? typeActiveBtnClasses : typeDESActiveBtnClasses" >
+              <svg width="50" height="50" stroke="black" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="-1 9.93023 52 30.11" class="mx-1 md:mx-2 mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Hat</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M 37 30 C 37 9 5 3 1 30 C 6 32 31 32 37 30 l 12 6 C 38 42 28 33 26.5 31.4 C 26 28 26 20 19 12 C 16 15 13 18 11 31"></path></g></g></svg>
+              hat</div>
           
       </div>
   </div>
@@ -210,8 +225,8 @@ useHead({
       <div >
           <h3 class="text-s md:text-xl my-2 md:my-4">Color:</h3>
           <div class="flex flex-row gap-4 mb-2 md:mb-4">
-              <div @click="changeColor" data-color="white" :class="[image.color == 'white' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-white']"></div>
-              <div @click="changeColor" data-color="black" :class="[image.color == 'black' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-black']"></div>
+              <div v-if="Object.keys(imgs[image.type]).includes('white')" @click="changeColor" data-color="white" :class="[image.color == 'white' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-white']"></div>
+              <div v-if="Object.keys(imgs[image.type]).includes('black')" @click="changeColor" data-color="black" :class="[image.color == 'black' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-black']"></div>
           </div>
           <div class="flex items-center">
 						<label for="toggle" class="text-s md:text-xl pr-4 md:pr-8">Show Media:</label>

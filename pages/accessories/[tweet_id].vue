@@ -21,17 +21,23 @@ const links = {
     white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=149858228431944112&ed=true&tc=&ic=&t_image1_iid=',
     black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=149563842495834714&ed=true&tc=&ic=&t_image2_iid=',
   },
+  mug:{
+    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=168618248917868537&ed=true&tc=&ic=&t_image1_iid=',
+  },
 }
 const imgs = {
   totebag:{
     white:'https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=',
     black:'https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
   },
+  mug:{
+    white:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113345638802673340&color=white&size=11oz&style=basic_mug&max_dim=1080&at=238414036962221940&t_image1_url=',
+  },
 }
 
 
 const image = reactive({
-  color: useRoute().query.color !=  undefined ? useRoute().query.color : 'white',
+  color: useRoute().query.color !=  undefined && Object.keys(imgs[useRoute().query.type]).includes('black') ? useRoute().query.color : 'white',
   type: useRoute().query.type !=  undefined ? useRoute().query.type : "totebag",
   w_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['white'] :"https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=" ,
   b_url: useRoute().query.type !=  undefined ? imgs[useRoute().query.type]['black'] :"https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=",
@@ -60,8 +66,11 @@ function changeUrl(event) {
     imgloading.state=true
     image.type = event.target.getAttribute('data-type')
     image.w_url = event.target.getAttribute('data-url-white')
+    if(Object.keys(imgs[image.type]).includes('black')){
     image.b_url = event.target.getAttribute('data-url-black')
-
+		}else{
+		image.color = Object.keys(imgs[image.type])[0]
+		}
   }
 }
 /*function changeTweet(event) {
@@ -117,6 +126,8 @@ const type_title = computed(() => {
 
     if( image.type == "totebag"){
     return "Tote Bag"
+    }else if( image.type == "mug"){
+    return "Mug"
     }
 })
 
@@ -159,7 +170,11 @@ useHead({
           <div @click.self="changeUrl" data-url-black="https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=" data-url-white="https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="totebag" :class="image.type == 'totebag' ? typeActiveBtnClasses : typeDESActiveBtnClasses" class="text-center">
               <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.46 50" class="mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Totebag</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M39.54,10.42H29.48v-.8A9.44,9.44,0,0,0,20.23,0,9.43,9.43,0,0,0,11,9.62v.8H.92a.94.94,0,0,0-.92,1V45.19A4.72,4.72,0,0,0,4.62,50H35.84a4.72,4.72,0,0,0,4.62-4.81V11.38A.94.94,0,0,0,39.54,10.42Zm-26.71-.8a7.56,7.56,0,0,1,7.4-7.7,7.55,7.55,0,0,1,7.4,7.7v.8H12.83ZM38.61,45.19a2.83,2.83,0,0,1-2.77,2.89H4.62a2.83,2.83,0,0,1-2.77-2.89V12.35H11v6.8a.92.92,0,1,0,1.84,0v-6.8h14.8v6.8a.93.93,0,1,0,1.85,0v-6.8h9.13Z"></path></g></g></svg>
               totebag</div>
-          
+          <div @click.self="changeUrl" data-url-white="https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113345638802673340&color=white&size=11oz&style=basic_mug&max_dim=1080&at=238414036962221940&t_image1_url=" data-type="mug" :class="image.type == 'mug' ? typeActiveBtnClasses : typeDESActiveBtnClasses" class="text-center">
+              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.95 50" class="mx-1 md:mx-2 mx-auto w-8 h-8 md:w-12 md:h-12 customizer-tabs__tab-icon"><title>Mug</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M42.2,9.35H37.31V1.92A1.92,1.92,0,0,0,35.38,0H1.92A1.92,1.92,0,0,0,0,1.92V44a6,6,0,0,0,6,6H31.33a6,6,0,0,0,6-6V39.47h4.9A5.76,5.76,0,0,0,48,33.72V15.09A5.74,5.74,0,0,0,42.2,9.35Zm-4.89,7.37h2.61a.94.94,0,0,1,.93.94V31.1a.94.94,0,0,1-.94.94h-2.6Zm-6,31.36H6A4.06,4.06,0,0,1,1.92,44V2.12H35.38V44A4.05,4.05,0,0,1,31.33,48.08ZM42.2,37.54H37.31V34h3.54A1.92,1.92,0,0,0,42.77,32h0V16.72h0a1.92,1.92,0,0,0-1.93-1.92H37.31V11.27H42.2A3.83,3.83,0,0,1,46,15.09V33.72A3.82,3.82,0,0,1,42.2,37.54Z"></path></g></g></svg>
+              mug</div>
+              
+              
       </div>
   </div>
 
@@ -183,8 +198,8 @@ useHead({
       <div >
           <h3 class="text-s md:text-xl my-2 md:my-4">Color:</h3>
           <div class="flex flex-row gap-4 mb-2 md:mb-4">
-              <div @click="changeColor" data-color="white" :class="[image.color == 'white' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-white']"></div>
-              <div @click="changeColor" data-color="black" :class="[image.color == 'black' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-black']"></div>
+              <div v-if="Object.keys(imgs[image.type]).includes('white')" @click="changeColor" data-color="white" :class="[image.color == 'white' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-white']"></div>
+              <div v-if="Object.keys(imgs[image.type]).includes('black')" @click="changeColor" data-color="black" :class="[image.color == 'black' ? colorActiveBtnClasses : colorDESActiveBtnClasses,'bg-black']"></div>
           </div>
           <div class="flex items-center">
 						<label for="toggle" class="text-s md:text-xl pr-4 md:pr-8">Show Media:</label>

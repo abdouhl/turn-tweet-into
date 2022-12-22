@@ -31,7 +31,7 @@ next_tweet = computed(() => {
 <li><NuxtLink class="hover:text-blue-500" to="/clothes?type=t_shirt">T-Shirt</NuxtLink></li>
 <li><NuxtLink class="hover:text-blue-500" to="/clothes?type=s_shirt">Sweatshirt</NuxtLink></li>
 <li><NuxtLink class="hover:text-blue-500" to="/clothes?type=hoodie">Hoodie</NuxtLink></li>
-<li><NuxtLink class="line-through" >Hat</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/clothes?type=hat" >Hat</NuxtLink></li>
 </ul>
 </div>
 
@@ -40,6 +40,7 @@ next_tweet = computed(() => {
 <h2 class="text-xl text-center py-1 " style="font-family: Lobster, cursive;">Accessories</h2>
 <ul class="p-1 md:p-2">
 <li><NuxtLink class="hover:text-blue-500" to="/accessories?type=totebag">Tote Bag</NuxtLink></li>
+<li><NuxtLink class="hover:text-blue-500" to="/accessories?type=mug" >Mug</NuxtLink></li>
 <li><NuxtLink class="line-through" >Face Mask</NuxtLink></li>
 <li><NuxtLink class="line-through" >Water bottle</NuxtLink></li>
 <li><NuxtLink class="line-through" >Travel mug</NuxtLink></li>
