@@ -21,7 +21,7 @@ if(ll.length >=4 ){
 crop_it = ll[3]
 }
 
-const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
+const {name,username,profile_image_url_https,text,photos,tweet_text_dir,created_at,likes_count,isverified}= await $fetch(useRuntimeConfig().apiUrl+tweet_id)
 
 
 
