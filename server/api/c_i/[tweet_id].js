@@ -21,6 +21,14 @@ const imgs = {
     white:'https://rlv.zcache.com/svc/view?pid=149858228431944112&realview=113449848557999730&style=budgettote&color=natural_natural&max_dim=1080&at=238414036962221940&t_image1_url=',
     black:'https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
   },
+  hat:{
+    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=',
+    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=',
+  },
+  mug:{
+    white:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113345638802673340&color=white&size=11oz&style=basic_mug&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113345638802673340&color=white&size=11oz&style=basic_mug&max_dim=1080&at=238414036962221940&t_image1_url=',
+  },
 }
 
 
@@ -47,7 +55,15 @@ w_t_image.src = w_t_imageData
 //b_t
 const b_t_image = new Image();
 b_t_image.onload = () => ctx.drawImage(b_t_image, 0, 0,b_t_image.width,b_t_image.height,410,20,370,370)
-const b_t_imageData = await ImgD.encodeFromURL(imgs[type]["black"]+'https://www.turntweetinto.com/api/b_t/'+tweet_id)
+var ccolor = "b_t"
+if(type=="hat" || type=="mug"){
+ccolor = "w_t"
+}
+var crop_it=""
+if(type=="hat"){
+crop_it = "-true-true-true"
+}
+const b_t_imageData = await ImgD.encodeFromURL(imgs[type]["black"]+'https://www.turntweetinto.com/api/'+ccolor+'/'+tweet_id+crop_it)
 b_t_image.src = b_t_imageData
 
 ctx.fillStyle = "white";

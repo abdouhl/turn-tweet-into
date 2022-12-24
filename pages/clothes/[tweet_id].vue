@@ -30,7 +30,7 @@ const links = {
     black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=235750125344025205&ed=true&tc=&ic=&t_image2_iid=',
   },
   hat:{
-    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=https%3A%2F%2Fwww.turntweetinto.com%2Fapi%2Fw_t%2F1604650028999405568-true-true-true',
+    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=',
   },
   
 }

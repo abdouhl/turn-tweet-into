@@ -11,9 +11,12 @@ if (
   }/node_modules/canvas/build/Release:${process.env.LD_LIBRARY_PATH || ''}`;
 }
 export default defineNuxtConfig({
-  modules: ['@nuxt/image-edge',"@nuxtjs/tailwindcss"],
+  modules: ['@nuxtjs/robots','@nuxt/image-edge',"@nuxtjs/tailwindcss"],
   runtimeConfig: {
     apiUrl: process.env.API_URL
+  },
+  robots: {
+    
   },
   css: [
     '@/assets/css/main.css',
