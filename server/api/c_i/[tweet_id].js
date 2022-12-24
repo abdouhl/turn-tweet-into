@@ -46,11 +46,15 @@ const ctx = canvas.getContext('2d')
 ctx.fillStyle = "black";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+var crop_it=""
+if(type=="hat"){
+crop_it = "-true-true-true"
+}
 
 //w_t
 const w_t_image = new Image();
 w_t_image.onload = () => ctx.drawImage(w_t_image, 0, 0,w_t_image.width,w_t_image.height,20,20,370,370)
-const w_t_imageData = await ImgD.encodeFromURL(imgs[type]["white"]+"https://www.turntweetinto.com/api/w_t/"+tweet_id)
+const w_t_imageData = await ImgD.encodeFromURL(imgs[type]["white"]+"https://www.turntweetinto.com/api/w_t/"+tweet_id+crop_it)
 w_t_image.src = w_t_imageData
 //b_t
 const b_t_image = new Image();
@@ -59,10 +63,7 @@ var ccolor = "b_t"
 if(type=="hat" || type=="mug"){
 ccolor = "w_t"
 }
-var crop_it=""
-if(type=="hat"){
-crop_it = "-true-true-true"
-}
+
 const b_t_imageData = await ImgD.encodeFromURL(imgs[type]["black"]+'https://www.turntweetinto.com/api/'+ccolor+'/'+tweet_id+crop_it)
 b_t_image.src = b_t_imageData
 
