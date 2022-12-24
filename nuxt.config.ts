@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiUrl: process.env.API_URL
   },
+  app: { head: { link: [ {rel: 'icon', type: "image/x-icon", href: '~/public/favicon.ico'} ] } },
   robots: {
     
   },
