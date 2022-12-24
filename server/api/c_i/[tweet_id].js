@@ -22,8 +22,8 @@ const imgs = {
     black:'https://rlv.zcache.com/svc/view?pid=149563842495834714&realview=113922391954172524&style=grocerytote&color=black&max_dim=1080&at=238414036962221940&t_image2_url=',
   },
   hat:{
-    white:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=',
-    black:'https://www.zazzle.com/api/create/at-238414036962221940?rf=238414036962221940&ax=Linkover&pd=148788574051472252&ed=true&tc=&ic=&t_image1_iid=',
+    white:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113647281033678299&design=49572798-1dca-4b2b-89b3-65ca9ba277bc&style=trucker_hat&color=white_white&max_dim=1080&at=238414036962221940&t_image1_url=',
+    black:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113647281033678299&design=49572798-1dca-4b2b-89b3-65ca9ba277bc&style=trucker_hat&color=white_white&max_dim=1080&at=238414036962221940&t_image1_url=',
   },
   mug:{
     white:'https://rlv.zcache.com/svc/view?pid=168618248917868537&realview=113345638802673340&color=white&size=11oz&style=basic_mug&max_dim=1080&at=238414036962221940&t_image1_url=',
